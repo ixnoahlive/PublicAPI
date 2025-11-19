@@ -287,6 +287,14 @@ public class HypixelAPI {
         return get(false, SkyBlockFireSalesReply.class, "skyblock/firesales");
     }
 
+    // TODO: Add support for array responses so that the other endpoints can become implementable
+    public CompletableFuture<HouseReply> getHouseById(String id) {
+        return get(true, HouseReply.class, "housing/house",
+                HTTPQueryParams.create()
+                        .add("house", id)
+        );
+    }
+
     /**
      * Applies a {@code filter} to a player object when it is received in an API response.
      */
